@@ -15,6 +15,9 @@ const (
 
 	// DefaultTapeFile is the default tape file extension.
 	DefaultTapeFile = ".tape"
+
+	// DefaultOutputFile is the default output file name.
+	DefaultOutputFile = "output.gif"
 )
 
 var rootCmd = &cobra.Command{
@@ -27,7 +30,7 @@ var rootCmd = &cobra.Command{
 }
 
 func init() {
-	rootCmd.Flags().StringP("output", "o", "", "output file path (default: output.gif)")
+	rootCmd.Flags().StringP("output", "o", DefaultOutputFile, "output file path")
 	rootCmd.Flags().BoolP("publish", "p", false, "publish the GIF to vhs.charm.sh")
 	rootCmd.Flags().BoolP("quiet", "q", false, "quiet mode (suppress output)")
 }
@@ -56,9 +59,6 @@ func run(cmd *cobra.Command, args []string) error {
 	}
 
 	output, _ := cmd.Flags().GetString("output")
-	if output == "" {
-		output = "output.gif"
-	}
 
 	_ = data
 
