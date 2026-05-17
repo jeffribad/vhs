@@ -17,7 +17,8 @@ const (
 	DefaultTapeFile = ".tape"
 
 	// DefaultOutputFile is the default output file name.
-	DefaultOutputFile = "output.gif"
+	// Changed from output.gif to recording.gif to be more descriptive.
+	DefaultOutputFile = "recording.gif"
 )
 
 var rootCmd = &cobra.Command{
